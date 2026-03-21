@@ -1,25 +1,46 @@
 import random
 
-words = [
-    "python",
-    "programa",
-    "variable",
-    "funcion",
-    "bucle",
-    "cadena",
-    "entero",
-    "lista",
-]
-
-letters = set("abcdefghijklmnopqrstuvwxyz")
-
-word = random.choice(words)
-guessed = []
-attempts = 6
-score = 0
+categories = {
+    "Lenguajes": ["python", "java", "html","css"],
+    "Conceptos": ["variable", "funcion", "bucle"],
+    "Herramientas": ["git", "vscode", "github"],
+    "Estructuras": ["lista", "tupla", "diccionario"]
+}
 
 print("¡Bienvenido al Ahorcado!")
 print()
+
+print("Elegí una categoría:")
+print("a) Lenguajes")
+print("b) Conceptos")
+print("c) Herramientas")
+print("d) Estructuras")
+
+while True:
+    option = input("Opción: ").lower()
+    match option:
+        case "a":
+            chosen = "Lenguajes"
+            break
+        case "b":
+            chosen = "Conceptos"
+            break
+        case "c":
+            chosen = "Herramientas"
+            break
+        case "d":
+            chosen = "Estructuras"
+            break
+        case _:
+            print("Opción inválida, intentá de nuevo.")
+
+word = random.choice(categories[chosen])
+print(f"\nLa categoría elegida fue {chosen}\n")
+
+letters = set("abcdefghijklmnopqrstuvwxyz")
+guessed = []
+attempts = 6
+score = 0
 
 while attempts > 0:
     # Mostrar progreso: letras adivinadas y guiones para las que faltan

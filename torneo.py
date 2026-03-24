@@ -73,16 +73,22 @@ while True:
                     break
                 
         case "3":
-           print("----Esta es la tabla de posiciones: \n")
+            print("----Esta es la tabla de posiciones: ----\n")
 
-           tabla_ordenada = sorted(equipos.items(), key=lambda x: x[1], reverse=True)
+            tabla_ordenada = sorted(equipos.items(), key=lambda x: x[1], reverse=True)
 
-           for equipo, puntos in tabla_ordenada:
-               print(f"{equipo}: {puntos} puntos")
+            for equipo, puntos in tabla_ordenada:
+                print(f"{equipo}: {puntos} puntos")
 
         case "4":
-            print("Eliminar equipo")
-
+            equipoE = input("Ingresar nombre de equipo a eliminar").strip().title()
+            
+            if equipoE in equipos:
+                del equipos[equipoE]
+                print(f"Equipo {equipoE} eliminado")
+            else:
+                print("El equipo no existe")
+                
         case "5":
             print("Saliendo ...")
             break

@@ -73,7 +73,13 @@ while True:
                     break
                 
         case "3":
-            print("Mostrar tabla")
+            print("----Esta es la tabla de posiciones: \n")
+
+            tabla_ordenada = sorted(equipos.items(), key=lambda x: x[1], reverse=True)
+
+            print("----Tabla de posiciones:----")
+            for equipo, puntos in tabla_ordenada:
+                print(f"{equipo}: {puntos} puntos")
 
         case "4":
             print("Eliminar equipo")

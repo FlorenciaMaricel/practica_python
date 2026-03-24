@@ -13,7 +13,7 @@ while True:
     match opcion:
         case "1":
             while True:
-                equipo = input("Agregar equipo: \n").strip()
+                equipo = input("Agregar equipo: \n").strip().title()
 
                 if equipo == "":
                     print("Nombre vacío")
@@ -27,7 +27,7 @@ while True:
                 else:
                     equipos[equipo.title()] = 0
                     print("Equipo agregado")
-                break
+                    break
 
         case "2":
             print("Registrar resultado")
@@ -52,7 +52,7 @@ while True:
                     g2 = partes[1].strip()
 
                     if not g1.isdigit() or not g2.isdigit():
-                        print("Debe ingresar números")
+                        print("Debe ingresar números positivos 0 o más")
                         continue
 
                     goles_local = int(g1)

@@ -29,12 +29,49 @@ while True:
                     print("Equipo agregado")
                 break
 
-            for equipo, puntos in equipos.items():
-                print(equipo, puntos)
-
         case "2":
-            print("Ingresar equipos y resultado")
+            print("Registrar resultado")
 
+            local = input("Ingresar nombre de equipo local: ").strip()
+            visitante = input("Ingresar nombre de equipo visitante: ").strip()
+
+            if local not in equipos or visitante not in equipos:
+                print("Uno o ambos equipos no existen")
+
+            else:
+                while True:
+                    marcador = input("Ingresar: goles local - goles visitante (ej: 4-2): ").strip()
+
+                    partes = marcador.split("-")
+
+                    if len(partes) != 2:
+                        print("Formato inválido")
+                        continue
+
+                    g1 = partes[0].strip()
+                    g2 = partes[1].strip()
+
+                    if not g1.isdigit() or not g2.isdigit():
+                        print("Debe ingresar números")
+                        continue
+
+                    goles_local = int(g1)
+                    goles_visitante = int(g2)
+
+                    if goles_local > goles_visitante:
+                        equipos[local] += 3
+
+                    elif goles_local < goles_visitante:
+                        equipos[visitante] += 3
+   
+                    else:
+                        equipos[local] += 1
+                        equipos[visitante] += 1
+
+                    print("\n Resultado registrado")
+
+                    break
+                
         case "3":
             print("Mostrar tabla")
 

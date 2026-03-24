@@ -25,15 +25,15 @@ while True:
                     print("---Ingrese sólo letras y espacios---")
 
                 else:
-                    equipos[equipo] = 0
+                    equipos[equipo.title()] = 0
                     print("Equipo agregado")
                 break
 
         case "2":
             print("Registrar resultado")
 
-            local = input("Ingresar nombre de equipo local: ").strip()
-            visitante = input("Ingresar nombre de equipo visitante: ").strip()
+            local = input("Ingresar nombre de equipo local: ").strip().title()
+            visitante = input("Ingresar nombre de equipo visitante: ").strip().title()
 
             if local not in equipos or visitante not in equipos:
                 print("Uno o ambos equipos no existen")
@@ -73,13 +73,12 @@ while True:
                     break
                 
         case "3":
-            print("----Esta es la tabla de posiciones: \n")
+           print("----Esta es la tabla de posiciones: \n")
 
-            tabla_ordenada = sorted(equipos.items(), key=lambda x: x[1], reverse=True)
+           tabla_ordenada = sorted(equipos.items(), key=lambda x: x[1], reverse=True)
 
-            print("----Tabla de posiciones:----")
-            for equipo, puntos in tabla_ordenada:
-                print(f"{equipo}: {puntos} puntos")
+           for equipo, puntos in tabla_ordenada:
+               print(f"{equipo}: {puntos} puntos")
 
         case "4":
             print("Eliminar equipo")
